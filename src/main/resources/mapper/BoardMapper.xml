@@ -11,6 +11,15 @@
     (#{title},#{ctnt},#{writer})
 
 </insert>
+    <update id="upBoard">
+        update board
+        set
+        title = #{title},
+        ctnt = #{ctnt},
+        writer = #{writer},
+        updated_at = current_timestemp()
+        where iboard = #{iboard}
+    </update>
 
 
 
