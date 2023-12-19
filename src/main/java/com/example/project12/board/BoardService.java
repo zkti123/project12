@@ -1,10 +1,10 @@
 package com.example.project12.board;
 
-import com.example.project12.board.model.BoardDto;
-import com.example.project12.board.model.BoardEntity;
-import com.example.project12.board.model.BoardIboard;
+import com.example.project12.board.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -18,5 +18,16 @@ public class BoardService {
     public int upBoard(BoardDto dto) {
 
         return mapper.upBoard(dto);
+    }
+
+    public List<BoardAllVo> selAllVo(BoardStartDto dto) {
+        int startIdx = 0;
+
+        // 페이지가 1 이상이고 lowlen이 0 이상인 경우에만 startIdx를 계산하여 설정
+        if (dto.getPage() > 0 && dto.getLowlen() >= 0) {
+            startIdx = (dto.getPage() - 1) * dto.getLowlen();
+        }
+        dto.setStartIdx(startIdx);
+        return mapper.selAllBoard(dto);
     }
 }

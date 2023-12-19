@@ -20,7 +20,13 @@
         updated_at = current_timestemp()
         where iboard = #{iboard}
     </update>
+<select id="selAllBoard">
+    SELECT iboard, title, ctnt, writer, created_at AS createdAt
+    FROM board
+    ORDER BY iboard DESC
+    LIMIT #{startIdx}, #{lowlen}
 
+</select>
 
 
 </mapper>

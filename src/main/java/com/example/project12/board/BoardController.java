@@ -1,10 +1,10 @@
 package com.example.project12.board;
 
-import com.example.project12.board.model.BoardDto;
-import com.example.project12.board.model.BoardEntity;
-import com.example.project12.board.model.BoardIboard;
+import com.example.project12.board.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/board")
@@ -22,5 +22,14 @@ public class BoardController {
         BoardEntity entity = new BoardEntity();
         entity.setIboard(iboard);
         return service.upBoard(dto);
+    }
+
+    @GetMapping
+    public List<BoardAllVo> getBaord(@RequestParam(defaultValue = "1") int page,
+                                     @RequestParam(defaultValue = "5",required = false) int low) {
+        BoardStartDto dto = new BoardStartDto();
+        dto.setPage(page);
+        dto.setLowlen(low);
+        return service.selAllVo(dto);
     }
 }
