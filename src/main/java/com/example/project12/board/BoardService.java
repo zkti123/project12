@@ -30,4 +30,8 @@ public class BoardService {
         dto.setStartIdx(startIdx);
         return mapper.selAllBoard(dto);
     }
+
+    public BoardEntity sellByIdBoard(BoardStartDto dto) {
+        return mapper.sellByIdBoard(dto);
+    }
 }

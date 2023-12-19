@@ -27,6 +27,11 @@
     LIMIT #{startIdx}, #{lowlen}
 
 </select>
+    <select id="sellByIdBoard">
+        SELECT iboard, title, ctnt, writer, created_at as createdAt, updated_at as updatedAt
+        from board
+        where iboard = #{iboard}
+    </select>
 
 
 </mapper>

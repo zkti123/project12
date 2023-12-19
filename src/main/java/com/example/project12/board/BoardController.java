@@ -26,10 +26,17 @@ public class BoardController {
 
     @GetMapping
     public List<BoardAllVo> getBaord(@RequestParam(defaultValue = "1") int page,
-                                     @RequestParam(defaultValue = "5",required = false) int low) {
+                                     @RequestParam(defaultValue = "5", required = false) int low) {
         BoardStartDto dto = new BoardStartDto();
         dto.setPage(page);
         dto.setLowlen(low);
         return service.selAllVo(dto);
+    }
+
+    @GetMapping("/{iboard}")
+    public BoardEntity getDetailBaord(@PathVariable int iboard) {
+        BoardStartDto dto = new BoardStartDto();
+        dto.setIboard(iboard);
+        return service.sellByIdBoard(dto);
     }
 }

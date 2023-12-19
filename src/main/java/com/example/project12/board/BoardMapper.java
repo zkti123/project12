@@ -12,4 +12,6 @@ public interface BoardMapper {
     int upBoard(BoardDto dto);
 
     List<BoardAllVo> selAllBoard(BoardStartDto dto);
+
+    BoardEntity sellByIdBoard(BoardStartDto dto);
 }
