@@ -14,4 +14,6 @@ public interface BoardMapper {
     List<BoardAllVo> selAllBoard(BoardStartDto dto);
 
     BoardEntity sellByIdBoard(BoardStartDto dto);
+
+    int delBoard(BoardEntity entity);
 }

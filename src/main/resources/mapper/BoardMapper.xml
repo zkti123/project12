@@ -36,7 +36,7 @@
     <update id="delBoard">
         update board
         set delyn = case
-        when delyn = 0 then 1,
+        when delyn = 0 then 1
         when delyn = 1 then 0
         end
         where iboard = #{iboard}

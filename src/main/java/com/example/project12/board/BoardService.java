@@ -34,4 +34,9 @@ public class BoardService {
     public BoardEntity sellByIdBoard(BoardStartDto dto) {
         return mapper.sellByIdBoard(dto);
     }
+
+    public int delBoard(BoardEntity entity) {
+        entity.setIboard(entity.getIboard());
+        return mapper.delBoard(entity);
+    }
 }

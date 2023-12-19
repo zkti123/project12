@@ -39,4 +39,11 @@ public class BoardController {
         dto.setIboard(iboard);
         return service.sellByIdBoard(dto);
     }
+
+    @DeleteMapping
+    public int delBoard(@RequestParam int iboard) {
+        BoardEntity entity = new BoardEntity();
+        entity.setIboard(iboard);
+        return service.delBoard(entity);
+    }
 }
