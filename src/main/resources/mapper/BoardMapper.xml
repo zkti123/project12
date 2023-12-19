@@ -33,5 +33,12 @@
         where iboard = #{iboard}
     </select>
 
+    <update id="delBoard">
+        update board
+        set iboard = case
+        when delyn = 0 then 1,
+        when delyn = 1 then 0
+        where iboard = #{iboard}
+    </update>
 
 </mapper>
