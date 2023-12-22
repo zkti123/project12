@@ -9,11 +9,25 @@
     (iboard,ctnt,writer,pw)
     values
     (#{iboard},#{ctnt},#{writer},#{pw})
-
-
 </insert>
 
+    <select id="selCmt">
+        select icmt,ctnt,writer,created_at as createdAt,updated_at as updatedAt
+        from board_cmt
+        where iboard = #{iboard}
+    </select>
 
+    <delete id="delCmt">
+        delete from board_cmt
+        where icmt = #{icmt} and pw = #{pw}
+    </delete>
+    <update id="upCmt">
+        update board_cmt
+        set ctnt = #{ctnt},
+        writer = #{writer},
+        updated_at = current_timestamp()
+        where icmt = #{icmt}
+    </update>
 
 
 
